@@ -13,18 +13,21 @@ const Item = styled(Paper)(({ theme }) => ({
   margin: '0 40px',
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  height: '500px',
+  height: 'auto',
+  borderRadius: '15px', // Zakrąglenie kontenera
+  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Subtelny cień
 }));
 
 function App() {
   const [cat, setCat] = useState('');
   const [image, setImage] = useState('');
-  const [radio, setRadio] = useState('');
+  const [radio, setRadio] = useState(''); // Wybrany tag dla API
   const [loading, setLoading] = useState(false);
   const [errorStatus, setErrorStatus] = useState(null);
 
   const fetchImage = async () => {
-    const imageUrl = 'https://cataas.com/cat';
+    const baseUrl = process.env.REACT_APP_CAT_KEY || 'https://cataas.com/cat';
+    const imageUrl = radio ? `${baseUrl}/${radio}` : baseUrl; // Dodanie tagu, jeśli jest wybrany
     setLoading(true);
     setImage(null);
     setErrorStatus(null);
@@ -70,10 +73,13 @@ function App() {
                 name="radio-buttons-group"
                 value={radio}
                 onChange={(e) => setRadio(e.target.value)}
-              >
-                <FormControlLabel value="red" control={<Radio />} label="Red" />
-                <FormControlLabel value="green" control={<Radio />} label="Green" />
-                <FormControlLabel value="blue" control={<Radio />} label="Blue" />
+                >
+                <FormControlLabel value="cute" control={<Radio />} label="Słodziaczki Kociaczki" />
+                <FormControlLabel value="funny" control={<Radio />} label="Śmieszne Kociakk" />
+                <FormControlLabel value="angry" control={<Radio />} label="Wkurzony Kocisko" />
+                <FormControlLabel value="sleeping" control={<Radio />} label="Śpiące Królewicze i Królewny" />
+                <FormControlLabel value="kitten" control={<Radio />} label="Kociątka Maluszki" />
+               
               </RadioGroup>
               <Button
                 variant="contained"
