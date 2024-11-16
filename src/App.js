@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Button, Typography } from '@mui/material';
+import { FormControl, RadioGroup, FormControlLabel, Radio, TextField, Button, Typography, Alert } from '@mui/material';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -31,18 +31,16 @@ function App() {
 
     try {
       const res = await fetch(imageUrl);
-      if (res.status < 200 || res.status >= 300) {
-        setErrorStatus(`Error: ${res.status}`);
-        setLoading(false);
-        return;
+      if (!res.ok) {
+        throw new Error(`Server responded with status ${res.status}`);
       }
 
       const imageBlob = await res.blob();
       const imageObjectURL = URL.createObjectURL(imageBlob);
       setImage(imageObjectURL);
-      setLoading(false);
     } catch (error) {
-      setErrorStatus('Error fetching image');
+      setErrorStatus(error.message || 'An unknown error occurred while fetching the image.');
+    } finally {
       setLoading(false);
     }
   };
@@ -94,9 +92,9 @@ function App() {
             {loading ? (
               <Typography variant="h6">Ładowanie...</Typography>
             ) : errorStatus ? (
-              <Typography variant="h6" color="error">
+              <Alert severity="error" style={{ marginTop: '20px' }}>
                 {errorStatus}
-              </Typography>
+              </Alert>
             ) : (
               image && (
                 <>
