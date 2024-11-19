@@ -3,46 +3,49 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Wysokość na całą stronę */
-  background: url("./assets/background.jpg") no-repeat center center fixed; /* Stałe tło */
-  background-size: cover; /* Dopasowanie tła */
+  height: 100vh;
+  background: url("./assets/background.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* Formularz */
 form {
-  max-width: 500px; /* Maksymalna szerokość formularza */
-  margin: 0 auto; /* Centrowanie formularza */
-  background: rgba(255, 255, 255, 0.9); /* Jasne, półprzezroczyste tło */
-  border-radius: 15px; /* Zaokrąglone rogi */
-  padding: 20px; /* Margines wewnętrzny */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Delikatny cień */
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Pole tekstowe */
 .text-field {
   background-color: #f9f9f9;
   border-radius: 15px;
-  transition: all 0.3s ease; /* Płynne przejścia */
+  transition: all 0.3s ease;
 }
 
 .text-field:hover .MuiOutlinedInput-root fieldset {
-  border-color: #4caf50; /* Zielony obrys po najechaniu */
+  border-color: #4caf50;
 }
 
 .text-field .MuiOutlinedInput-root.Mui-focused fieldset {
-  border-color: #388e3c; /* Ciemniejszy zielony obrys po aktywacji */
+  border-color: #388e3c;
 }
 
 /* Obraz kota */
 .cat-image {
   width: 100%;
-  max-width: 400px; /* Maksymalna szerokość */
-  max-height: 350px; /* Maksymalna wysokość */
-  border: 7px solid #4caf50; /* Zielona ramka */
-  border-radius: 20px; /* Zaokrąglone rogi */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Cień wokół obrazu */
+  max-width: 400px;
+  max-height: 350px;
+  border: 7px solid #4caf50;
+  border-radius: 20px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
   margin-top: 20px;
-  object-fit: cover; /* Dopasowanie obrazu */
+  object-fit: cover;
+  opacity: 0;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
 }
 
 /* Responsywność */
@@ -53,7 +56,7 @@ form {
   }
 
   form {
-    max-width: 90%; /* Dopasowanie do szerokości ekranu */
+    max-width: 90%;
   }
 }
 
@@ -63,55 +66,54 @@ form {
     max-height: 150px;
   }
 }
-/* Styl dla przycisku */
+
+/* Styl dla przycisków */
 .button {
-  background-color: rgba(76, 175, 80, 0.1); /* Domyślne półprzezroczyste zielone tło */
-  color: #4caf50; /* Zielony tekst */
-  border: 2px solid #4caf50; /* Zielony obrys */
-  border-radius: 20px; /* Zaokrąglone rogi */
-  padding: 10px 20px; /* Margines wewnętrzny */
-  font-weight: bold; /* Pogrubiony tekst */
-  text-transform: uppercase; /* Wielkie litery */
-  width: fit-content; /* Dopasowanie szerokości do treści */
-  margin: 10px auto; /* Centrowanie */
-  cursor: pointer; /* Wskaźnik ręki */
-  transition: all 0.3s ease; /* Płynne przejścia */
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+  border: 2px solid #4caf50;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: fit-content;
+  margin: 10px auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Efekt po najechaniu */
 .button:hover {
-  background-color: rgba(76, 175, 80, 0.6); /* Bardziej widoczne zielone tło */
-  color: white; /* Biały tekst */
-  border-color: #388e3c; /* Ciemniejszy zielony obrys */
-  transform: translateY(-2px); /* Subtelne uniesienie przycisku */
+  background-color: rgba(76, 175, 80, 0.6);
+  color: white;
+  border-color: #388e3c;
+  transform: translateY(-2px);
 }
 
-/* Efekt po kliknięciu */
 .button:active {
-  background-color: #4caf50; /* Pełne intensywne zielone tło */
-  color: white; /* Biały tekst */
-  border-color: #2e7d32; /* Ciemniejszy obrys */
-  transform: scale(0.95); /* Subtelne zmniejszenie */
+  background-color: #4caf50;
+  color: white;
+  border-color: #2e7d32;
+  transform: scale(0.95);
 }
 
 /* Styl dla przycisku "Adoptuj Koteczka" */
 .button-adopt {
-  background-color: rgba(255, 152, 0, 0.1); /* Domyślne półprzezroczyste pomarańczowe tło */
-  color: #ff9800; /* Pomarańczowy tekst */
-  border: 2px solid #ff9800; /* Pomarańczowy obrys */
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+  border: 2px solid #ff9800;
 }
 
 .button-adopt:hover {
-  background-color: rgba(255, 152, 0, 0.6); /* Bardziej widoczne pomarańczowe tło */
-  color: white; /* Biały tekst */
-  border-color: #e68900; /* Ciemniejszy pomarańczowy obrys */
+  background-color: rgba(255, 152, 0, 0.6);
+  color: white;
+  border-color: #e68900;
 }
 
 .button-adopt:active {
-  background-color: #ff9800; /* Pełne intensywne pomarańczowe tło */
+  background-color: #ff9800;
   color: white;
-  border-color: #d97706; /* Ciemniejszy obrys */
-  transform: scale(0.95); /* Subtelne zmniejszenie */
+  border-color: #d97706;
+  transform: scale(0.95);
 }
 
 /* Styl dla opcji radio */
@@ -119,11 +121,161 @@ form {
   display: flex;
   align-items: center;
   padding: 5px;
-  border-radius: 10px; /* Delikatne zaokrąglenie */
-  transition: background-color 0.3s ease; /* Płynne przejście tła */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .radio-label:hover {
-  background-color: rgba(76, 175, 80, 0.1); /* Delikatne zielone tło na hover */
-  cursor: pointer; /* Wskaźnik ręki */
+  background-color: rgba(76, 175, 80, 0.1);
+  cursor: pointer;
+}
+
+/* Animacje dla obrazu kota */
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.flip {
+  animation-name: flip;
+}
+
+@keyframes flip {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+.slideIn {
+  animation-name: slideIn;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.bounce {
+  animation-name: bounce;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.rotateFade {
+  animation-name: rotateFade;
+}
+
+@keyframes rotateFade {
+  0% {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+.ripple {
+  animation-name: ripple;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.skew {
+  animation-name: skew;
+}
+
+@keyframes skew {
+  0% {
+    opacity: 0;
+    transform: skewX(-30deg);
+  }
+  100% {
+    opacity: 1;
+    transform: skewX(0);
+  }
+}
+
+.blur {
+  animation-name: blur;
+}
+
+@keyframes blur {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
