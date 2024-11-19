@@ -1,16 +1,18 @@
 import React from 'react';
 import { FormControl, RadioGroup, FormControlLabel, Radio, TextField } from '@mui/material';
-import '../App.css'; // Import stylów
+import '../App.css'; 
+import CatNames from '../utils/CatNames';
 
 const CatForm = ({ cat, setCat, radio, setRadio, fetchImage }) => {
   const setRandomName = () => {
-    const randomNames = ["Misia", "Filemon", "Mruczek", "Puszek", "Kicia"];
-    const randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
-    setCat(randomName);
+    const name = CatNames.getRandomName();
+    console.log("Losowane imię:", name);
+    setCat(name); 
   };
 
   return (
     <form>
+      
       <TextField
         label="Podaj imię kotka"
         type="text"
@@ -20,14 +22,19 @@ const CatForm = ({ cat, setCat, radio, setRadio, fetchImage }) => {
         onChange={(e) => setCat(e.target.value)}
         fullWidth
         margin="normal"
+        className="text-field"
       />
+      
+     
       <button
         onClick={setRandomName}
-        className="button" // Dodano klasę
+        className="button" 
         type="button"
       >
         Losuj imię
       </button>
+
+    
       <RadioGroup
         name="radio-buttons-group"
         value={radio}
@@ -40,9 +47,10 @@ const CatForm = ({ cat, setCat, radio, setRadio, fetchImage }) => {
         <FormControlLabel value="sleeping" control={<Radio />} label="Śpiące Królewicze i Królewny" className="radio-label" />
         <FormControlLabel value="kitten" control={<Radio />} label="Kociątka Maluszki" className="radio-label" />
       </RadioGroup>
+
       <button
         onClick={fetchImage}
-        className="button button-adopt" // Dodano dodatkową klasę
+        className="button button-adopt" 
         type="button"
       >
         Adoptuj Koteczka z Kociego Królestwa
