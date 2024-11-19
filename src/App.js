@@ -13,15 +13,17 @@ function App() {
   const [errorStatus, setErrorStatus] = useState(null);
 
   const fetchImage = async () => {
-    const baseUrl = process.env.REACT_APP_CAT_API_URL || 'https://cataas.com/cat'; 
+    if (!cat.trim()) {
+      setErrorStatus("Aby adopotować Kotka podaj najpierw jego imię!");
+      return;
+    }
+
+    const baseUrl = process.env.REACT_APP_CAT_API_URL || 'https://cataas.com/cat';
     setLoading(true);
     setImage(null);
     setErrorStatus(null);
 
-    const imageUrl = radio ? `${baseUrl}/${radio}` : baseUrl; 
-    setLoading(true);
-    setImage(null);
-    setErrorStatus(null);
+    const imageUrl = radio ? `${baseUrl}/${radio}` : baseUrl;
 
     try {
       const res = await fetch(imageUrl);
@@ -49,6 +51,7 @@ function App() {
             radio={radio}
             setRadio={setRadio}
             fetchImage={fetchImage}
+            errorStatus={errorStatus}
           />
         }
         rightContent={
