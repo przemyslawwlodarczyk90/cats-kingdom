@@ -1,47 +1,22 @@
-For all those who love Cats :) 
+# Cats Kingdom
 
+Mała zabawa w React. Wybierz kategorię, obejrzyj zdjęcie kota i wylosuj dla niego polskie imię.
 
-# 🐱 Cats Kingdom 🐱
+[Otwórz Cats Kingdom na GitHub Pages](https://przemyslawwlodarczyk90.github.io/cats-kingdom/)
 
-Cats Kingdom to interaktywna aplikacja dla miłośników kotów, gdzie możesz:
-- Losować śmieszne, polskie imiona dla kotów 🐾
-- Oglądać zdjęcia kotków według różnych kategorii 🖼️
+## Co jest w kodzie
 
+- Lista imion w [`CatNames.js`](src/utils/CatNames.js).
+- Formularz wyboru kategorii i widok zdjęcia zbudowane w React i Material UI.
+- Pobieranie zdjęć z Cataas i komunikat, gdy pobranie się nie uda.
 
-## 🎯 Funkcjonalności
-1. **Losowanie imion:**
-   - Wybierz losowe imię dla swojego kotka spośród ponad 250 polskich, śmiesznych imion.
-   
+## Uruchomienie lokalne
 
-2. **Kategorie zdjęć kotów:**
-   - Wybierz kategorię, np.:
-     - Słodziaczki Kociaczki
-     - Śmieszne Kociaki
-     - Wkurzony Kocisko
-     - Śpiące Królewicze i Królewny
-     - Kociątka Maluszki
-   - Oglądaj zdjęcia kotków dostosowane do Twojego wyboru.
+Potrzebujesz Node.js i npm. W katalogu repozytorium uruchom:
 
+```bash
+npm ci
+npm start
+```
 
-
----
-
-## 🔧 Technologie
-- **React** – interfejs użytkownika.
-- **Material-UI** – estetyczne komponenty (przyciski, pola tekstowe, alerty).
-- **Cataas API** – baza zdjęć kotów.
-- **CSS** – stylizacja aplikacji z animacjami.
-
----
-
-## 🚀 Jak uruchomić projekt?
-1. **Sklonuj repozytorium:**
-   ```bash
-   git clone https://github.com/przemyslawwlodarczyk90/cats-kingdom
-   cd cats-kingdom
-
-
-
-
-## URL do testów i zabawy
-https://przemyslawwlodarczyk90.github.io/cats-kingdom/
+Aplikacja otworzy się pod adresem `http://localhost:3000`.
